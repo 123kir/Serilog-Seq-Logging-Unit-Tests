@@ -22,17 +22,16 @@ namespace AirPort_PRO_NuGet_Logger
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //var serilogLogger = new LoggerConfiguration()
-            //.MinimumLevel.Verbose()
-            //.WriteTo.Seq("http://localhost:5341", apiKey: "token")
-            ////.WriteTo.Debug() - тани 
-            //.CreateLogger();
+            var serilogLogger = new LoggerConfiguration()
+            .MinimumLevel.Verbose()
+            .WriteTo.Seq("http://localhost:5341", apiKey: "1ul5GVPRG6zSKanMtrWa")
+            .CreateLogger();
 
-            //var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger("DataGrid");
+            var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger("DataGrid");
 
             // спрошлой версии
-            var factory = LoggerFactory.Create(builder => builder.AddDebug());
-            var logger = factory.CreateLogger(nameof(DataGrid));
+            //var factory = LoggerFactory.Create(builder => builder.AddDebug());
+            //var logger = factory.CreateLogger(nameof(DataGrid));
 
             var storage = new MemoryAirPlaneStorage();
             var manager = new PlaneManager_cs(storage, logger);
