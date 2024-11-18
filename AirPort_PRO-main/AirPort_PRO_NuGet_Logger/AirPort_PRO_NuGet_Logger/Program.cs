@@ -23,9 +23,9 @@ namespace AirPort_PRO_NuGet_Logger
             Application.SetCompatibleTextRenderingDefault(false);
 
             var serilogLogger = new LoggerConfiguration()
-            .MinimumLevel.Verbose()
-            .WriteTo.Seq("http://localhost:5341", apiKey: "1ul5GVPRG6zSKanMtrWa")
-            .CreateLogger();
+                .MinimumLevel.Verbose()
+                .WriteTo.Seq("http://localhost:5341", apiKey: "1ul5GVPRG6zSKanMtrWa")
+                .CreateLogger();
 
             var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger("DataGrid");
 
